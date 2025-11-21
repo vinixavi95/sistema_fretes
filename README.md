@@ -1,15 +1,303 @@
-📦 Sistema de Fretes — Backend (FastAPI)Este projeto implementa um servidor backend completo para um sistema de fretes, utilizando FastAPI para construir uma API robusta e de alta performance.📜 Visão GeralO sistema permite que diferentes perfis de usuário realizem as seguintes ações:Autenticação (Login e Cadastro)Solicitação e Pagamento de fretes.Consulta de históricos.Acesso a relatórios e funcionalidades específicas por cargo (gerente, entregador ou usuário comum).🛠️ Tecnologias UtilizadasO backend é construído com as seguintes ferramentas e dependências:Linguagem: Python 3.13Framework: FastAPIServidor ASGI: UvicornBanco de Dados: PostgreSQL (com psycopg2 como driver)Segurança: python-jose (para autenticação JWT)APIs Externas:BrasilAPI: Consulta de CEP e coordenadas geográficas.Project OSRM: Cálculo de distância geográfica entre pontos.🗄️ Arquitetura da APIO projeto segue o padrão de Separação de Responsabilidades, utilizando a seguinte organização em camadas:route: Recebe as requisições HTTP e as encaminha.controller: Realiza validações iniciais e orquestra as chamadas para as camadas de serviço.service: Contém a Regra de Negócio central da aplicação.repository: Gerencia o Acesso ao Banco de Dados (CRUD).$$\text{Requisição HTTP} \rightarrow \text{Route} \rightarrow \text{Controller} \rightarrow \text{Service} \rightarrow \text{Repository} \rightarrow \text{Database}$$🚀 Funcionalidades por Perfil👤 Usuário ComumCadastro e Login (gera token JWT).Atualização de dados cadastrais.Solicitação e Pagamento de frete.Histórico de fretes solicitados.🧑‍💼 Funcionário (Entregador/Gerente)Cadastro como funcionário (requer uma conta de usuário comum prévia).Registro de Ponto (entrada/saída).Entregadores: Consulta de fretes a serem entregues.Gerentes: Acesso a Relatórios de fretes.#▶️ Como Executar o Projeto1. Clonagem do RepositórioBashgit clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
-2. Rodar o Projeto (Recomendado: Docker)Utilize Docker Compose para configurar o ambiente com a aplicação e o PostgreSQL automaticamente:Bashdocker compose up --build
-3. Alternativa: Execução Local (Sem Docker)Instalação de DependênciasBash# Criar e ativar ambiente virtual
-python -m venv venv
-# Linux/macOS
-source venv/bin/activate
-# Windows
-venv\Scripts\activate
+# sistema_fretes
+Este projeto implementa um sistema completo de cálculo e gerenciamento de fretes, com cadastro de usuários, autenticação, controle de entregadores, relatórios e registro de ponto. A aplicação foi desenvolvida em **FastAPI** com banco de dados **PostgreSQL**.
+=======
+📦 Sistema de Fretes — Backend (FastAPI)
 
-# Atualizar pip e instalar dependências
+Este projeto implementa um servidor backend completo para o sistema de fretes, permitindo que usuários se autentiquem, solicitem fretes, realizem pagamentos, consultem históricos e acessem relatórios conforme seu cargo (gerente, entregador ou usuário comum).
+
+A API foi construída com FastAPI, executada via Uvicorn, utiliza PostgreSQL como banco de dados e integra com duas APIs externas:
+
+📍 BrasilAPI — consulta de CEP e coordenadas
+
+🗺️ Project OSRM — cálculo de distância geográfica
+
+🚀 Funcionalidades Implementadas
+
+👤 Usuário
+
+Cadastro
+
+Login (gera token JWT)
+
+Atualização de dados
+
+Solicitação de frete
+
+Pagamento de frete
+
+Histórico de fretes
+
+🧑‍💼 Funcionário
+
+Cadastro como funcionário (após criar conta)
+
+Consulta de fretes por entregadores
+
+Relatórios de fretes por gerentes
+
+Registro de ponto (entrada/saída)
+
+🗄️ Estrutura da API (Architecture)
+
+O projeto segue a separação clara de responsabilidades:
+
+route → controller → service → repository
+
+
+route: recebe requisições HTTP
+
+controller: valida e orquestra chamadas
+
+service: regras de negócio
+
+repository: acesso ao banco de dados
+
+
+🛠️ Tecnologias
+
+Python 3.13
+
+FastAPI
+
+Uvicorn
+
+PostgreSQL
+
+psycopg2
+
+python-jose (JWT)
+
+API BrasilAPI
+
+API OSRM
+
+
+▶️ Como executar o projeto
+
+1. Clone o repositório
+
+git clone https://github.com/seu-usuario/seu-repo.git
+
+cd seu-repo
+
+2. Instalação das dependências (opcional sem Docker)
+
+Se você quiser rodar o projeto localmente sem Docker, use um ambiente virtual e instale as dependências via requirements.txt:
+
+# Criar e ativar um ambiente virtual
+python -m venv venv
+# No Linux/macOS
+source venv/bin/activate
+# No Windows
+venv\Scripts\activate
+# Instalar dependências
 pip install --upgrade pip
 pip install -r requirements.txt
-Configuração do Banco de DadosConfigure um PostgreSQL local.Execute o script fretes.sql para inicializar o esquema.Iniciando o ServidorBashuvicorn main:app --reload
-🌐 O servidor estará disponível em: http://127.0.0.1:80004. Documentação Automática (Swagger)A documentação interativa da API está disponível em: http://127.0.0.1:8000/docs🔑 Endpoints da APIPara endpoints que requerem autenticação, inclua o cabeçalho Authorization: Bearer <seu_token> após o Login.🔐 Autenticação e UsuárioMétodoEndpointDescriçãoCorpo/DetalhesPOST/usuario/cadastroCria um novo usuário.nome, email, senha, telefone, eh_funcionarioPOST/usuario/loginRealiza o login e gera o token JWT.email, senhaPOST/usuario/funcionarioCadastra o usuário logado como funcionário (token necessário).usuario_id, cargo, numero_registroPUT/usuario/atualizarAtualiza dados do usuário logado (token necessário).nome, email, senha🚚 FretesMétodoEndpointDescriçãoCorpo/DetalhesPOST/frete/solicitacaoSolicita um novo frete (token necessário).peso, opcao, cep_origem, cep_destinoPOST/frete/pagamentoRegistra o pagamento de um frete.frete_id, meio_pagamentoGET/frete/historicoConsulta o histórico de fretes (apenas gerentes).GET/frete/consultaConsulta detalhes de um frete específico (apenas entregador).Query param: frete_id⚠️ Observação: O cálculo do frete depende da BrasilAPI e Project OSRM. Instabilidades na devolução de coordenadas podem impedir o cálculo.📊 Relatórios e PontoMétodoEndpointDescriçãoCorpo/DetalhesGET/relatorio/fretes-diaObtém relatórios de fretes por data.Query param: data_consulta (opcional)POST/relatorio/pontoRegistra a entrada ou saída do funcionário (token necessário).tipo ("entrada" ou "saida")
+
+3. Rodar o projeto
+Com Docker (recomendado)
+
+A imagem Docker já inclui o PostgreSQL e o esquema do banco de dados. Para subir tudo, execute:
+
+docker compose up --build
+
+Isso criará e iniciará os containers do backend e do banco de dados.
+
+Sem Docker
+
+Se estiver usando o ambiente virtual local, inicie o servidor FastAPI:
+
+uvicorn main:app --reload
+
+
+O servidor ficará disponível em http://127.0.0.1:8000.
+
+4. Acessar a documentação automática
+
+O FastAPI fornece uma interface Swagger interativa:
+
+http://127.0.0.1:8000/docs
+
+🗄️ Banco de Dados
+
+O sistema utiliza PostgreSQL:
+
+Com Docker: já vem configurado e inicializado junto com a aplicação.
+
+Sem Docker: configure um PostgreSQL local e crie o banco conforme o script fretes.sql.
+
+🔐 Fluxo de Autenticação
+
+Para usar a API, siga esta ordem:
+
+Cadastro → cria o usuário
+
+Login → gera o token
+
+Usar o token → enviar no header como:
+
+Authorization: Bearer <seu_token>
+
+🔑 Endpoints — Detalhamento Completo
+
+1. 👤 Cadastro de Usuário
+
+POST /usuario/cadastro
+
+Corpo da requisição:
+{
+  "nome": "string",
+  "email": "string",
+  "senha": "string",
+  "telefone": 11999999999,
+  "eh_funcionario": false
+}
+
+2. 🔑 Login
+
+POST /usuario/login
+
+Corpo:
+{
+  "email": "string",
+  "senha": "string"
+}
+
+Retorno:
+{
+  "access_token": "string",
+  "token_type": "bearer"
+}
+
+3. 🧑‍💼 Cadastro de Funcionário
+
+POST /usuario/funcionario
+
+Requer token de autenticação.
+
+Corpo:
+{
+  "usuario_id": 1,
+  "cargo": "gerente",
+  "numero_registro": 12345
+}
+
+4. ✏️ Atualizar Usuário
+
+PUT /usuario/atualizar
+
+Corpo:
+{
+  "nome": "string",
+  "email": "user@example.com",
+  "senha": "string"
+}
+
+🚚 Frete — Solicitação, Pagamento e Histórico
+
+5. 📦 Solicitação de Frete
+
+POST /frete/solicitacao
+
+Requer token.
+
+Corpo:
+{
+  "peso": 3.2,
+  "opcao": 1,
+  "cep_origem": "01001000",
+  "cep_destino": "20040030"
+}
+
+Retorno:
+{
+  "frete_id": 1,
+  "valor": 45.90,
+  "tipo": "Expresso",
+  "status": "calculado"
+}
+
+
+⚠️ Observação: A BrasilAPI apresenta instabilidades na devolução de coordenadas geográficas.
+Quando isso ocorre, o cálculo da distância falha e o frete não pode ser calculado.
+
+6. 💳 Pagamento do Frete
+
+POST /frete/pagamento
+
+Corpo:
+{
+  "frete_id": 1,
+  "meio_pagamento": "pix"
+}
+
+Retorno:
+{
+  "frete_id": 1,
+  "status": "pago",
+  "meio_pagamento": "pix"
+}
+
+7. 📜 Histórico de Fretes
+
+GET /frete/historico
+
+Acessível apenas para gerentes.
+
+Retorno:
+{
+  "fretes": [
+    "..."
+  ]
+}
+
+8. 🔍 Consulta de Frete (Entregador)
+
+GET /frete/consulta?frete_id=1
+
+Acesso restrito ao cargo entregador.
+
+Retorno:
+{
+  "cep_origem": "string",
+  "cep_destino": "string",
+  "nome_remetente": "string",
+  "telefone_remetente": "string"
+}
+
+📊 Relatórios
+
+9. 📅 Fretes do Dia
+
+GET /relatorio/fretes-dia?data_consulta=YYYY-MM-DD (opcional)
+
+Se não passar data, retorna os fretes do dia atual.
+
+Retorno:
+[
+  {
+    "frete_id": 1,
+    "status": "pago",
+    "valor": 40,
+    "meio_pagamento": "pix",
+    "mensagem": "OK"
+  }
+]
+
+10. ⏱️ Registro de Ponto
+
+POST /relatorio/ponto
+
+Corpo:
+{
+  "tipo": "entrada"
+}
+
+Retorno:
+{
+  "usuario_id": 1,
+  "data": "2025-11-21",
+  "entrada": "2025-11-21T01:18:33.764Z",
+  "saida": "2025-11-21T01:18:33.764Z",
+  "mensagem": "Registro efetuado"
+}
