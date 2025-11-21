@@ -78,22 +78,54 @@ API OSRM
 1. Clone o repositório
 
 git clone https://github.com/seu-usuario/seu-repo.git
+
 cd seu-repo
+
+2. Instalação das dependências (opcional sem Docker)
+
+Se você quiser rodar o projeto localmente sem Docker, use um ambiente virtual e instale as dependências via requirements.txt:
+
+# Criar e ativar um ambiente virtual
+python -m venv venv
+# No Linux/macOS
+source venv/bin/activate
+# No Windows
+venv\Scripts\activate
+# Instalar dependências
+pip install --upgrade pip
+pip install -r requirements.txt
+
+3. Rodar o projeto
+Com Docker (recomendado)
+
+A imagem Docker já inclui o PostgreSQL e o esquema do banco de dados. Para subir tudo, execute:
 
 docker compose up --build
 
-2. Suba o servidor
+Isso criará e iniciará os containers do backend e do banco de dados.
+
+Sem Docker
+
+Se estiver usando o ambiente virtual local, inicie o servidor FastAPI:
+
 uvicorn main:app --reload
 
-3. Acesse a documentação automática
 
-FastAPI fornece uma UI automática via Swagger:
+O servidor ficará disponível em http://127.0.0.1:8000.
+
+4. Acessar a documentação automática
+
+O FastAPI fornece uma interface Swagger interativa:
 
 http://127.0.0.1:8000/docs
 
 🗄️ Banco de Dados
 
-O sistema utiliza PostgreSQL, configurado no docker junto com o projeto.
+O sistema utiliza PostgreSQL:
+
+Com Docker: já vem configurado e inicializado junto com a aplicação.
+
+Sem Docker: configure um PostgreSQL local e crie o banco conforme o script fretes.sql.
 
 🔐 Fluxo de Autenticação
 
