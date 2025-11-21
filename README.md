@@ -1,6 +1,3 @@
-# sistema_fretes
-Este projeto implementa um sistema completo de cálculo e gerenciamento de fretes, com cadastro de usuários, autenticação, controle de entregadores, relatórios e registro de ponto. A aplicação foi desenvolvida em **FastAPI** com banco de dados **PostgreSQL**.
-=======
 📦 Sistema de Fretes — Backend (FastAPI)
 
 Este projeto implementa um servidor backend completo para o sistema de fretes, permitindo que usuários se autentiquem, solicitem fretes, realizem pagamentos, consultem históricos e acessem relatórios conforme seu cargo (gerente, entregador ou usuário comum).
