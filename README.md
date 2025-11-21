@@ -73,9 +73,9 @@ API OSRM
 
 1. Clone o repositório
 
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone https://github.com/vinixavi95/sistema_fretes.git
 
-cd seu-repo
+cd sistema_fretes
 
 2. Instalação das dependências (opcional sem Docker)
 
