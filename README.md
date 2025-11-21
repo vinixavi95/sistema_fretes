@@ -1,4 +1,4 @@
-📦 Sistema de Fretes — Backend (FastAPI)
+#📦 Sistema de Fretes — Backend (FastAPI)
 
 Este projeto implementa um servidor backend completo para um sistema de fretes, permitindo que usuários:
 
@@ -18,7 +18,7 @@ BrasilAPI — consulta de CEP e coordenadas
 
 Project OSRM — cálculo de distância geográfica
 
-🚀 Funcionalidades
+#🚀 Funcionalidades
 👤 Usuário
 
 Cadastro
@@ -74,7 +74,7 @@ python-jose (JWT)
 
 APIs externas: BrasilAPI, OSRM
 
-▶️ Como Executar o Projeto
+#▶️ Como Executar o Projeto
 1. Clonar o repositório
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
@@ -111,19 +111,19 @@ uvicorn main:app --reload
 O servidor ficará disponível em http://127.0.0.1:8000
 .
 
-4. Documentação automática
+#4. Documentação automática
 
 O FastAPI fornece interface Swagger interativa:
 
 http://127.0.0.1:8000/docs
 
-🗄️ Banco de Dados
+#🗄️ Banco de Dados
 
 Com Docker: já vem configurado e inicializado
 
 Sem Docker: configure um PostgreSQL local e execute o script fretes.sql
 
-🔐 Fluxo de Autenticação
+#🔐 Fluxo de Autenticação
 
 Cadastro → cria o usuário
 
