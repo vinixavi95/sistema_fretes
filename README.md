@@ -14,28 +14,28 @@ A API foi construída com FastAPI, executada via Uvicorn, utiliza PostgreSQL com
 
 ### 👤 Usuário
 
-Cadastro
+- Cadastro
 
-Login (gera token JWT)
+- Login (gera token JWT)
 
-Atualização de dados
+- Atualização de dados
 
-Solicitação de frete
+- Solicitação de frete
 
-Pagamento de frete
+- Pagamento de frete
 
-Histórico de fretes
+- Histórico de fretes
 
 
 ### 🧑‍💼 Funcionário
 
-Cadastro como funcionário (após criar conta)
+- Cadastro como funcionário (após criar conta)
 
-Consulta de fretes por entregadores
+- Consulta de fretes por entregadores
 
-Relatórios de fretes por gerentes
+- Relatórios de fretes por gerentes
 
-Registro de ponto (entrada/saída)
+- Registro de ponto (entrada/saída)
 
 
 ### 🗄️ Estrutura da API (Architecture)
@@ -51,30 +51,30 @@ flowchart LR
 ```
 
 
-route: recebe requisições HTTP
+**route:** recebe requisições HTTP
 
-controller: valida e orquestra chamadas
+**controller:** valida e orquestra chamadas
 
-service: regras de negócio
+**service:** regras de negócio
 
-repository: acesso ao banco de dados
+**repository:** acesso ao banco de dados
 
 
 ### 🛠️ Tecnologias
 
-Python 3.13
+- Python 3.13
 
-FastAPI
+- FastAPI
 
-Uvicorn
+- Uvicorn
 
-PostgreSQL
+- PostgreSQL
 
-psycopg2
+- psycopg2
 
-python-jose (JWT)
+- python-jose (JWT)
 
-API BrasilAPI
+- - API BrasilAPI
 
 API OSRM
 
