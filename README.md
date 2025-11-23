@@ -306,9 +306,11 @@ Retorno:
 POST /relatorio/ponto
 
 Corpo:
+```json
 {
   "tipo": "entrada"
 }
+```
 
 Retorno:
 {
