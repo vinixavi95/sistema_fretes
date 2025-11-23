@@ -156,6 +156,7 @@ Authorization: Bearer <seu_token>
 POST /usuario/cadastro
 
 Corpo da requisição:
+```json
 {
   "nome": "string",
   "email": "string",
@@ -163,24 +164,27 @@ Corpo da requisição:
   "telefone": 11999999999,
   "eh_funcionario": false
 }
-
+```
 
 ### 2. 🔑 Login
 
 POST /usuario/login
 
 Corpo:
+```json
 {
   "email": "string",
   "senha": "string"
 }
+```
 
 Retorno:
+```json
 {
   "access_token": "string",
   "token_type": "bearer"
 }
-
+```
 
 ### 3. 🧑‍💼 Cadastro de Funcionário
 
@@ -189,24 +193,26 @@ POST /usuario/funcionario
 Requer token de autenticação.
 
 Corpo:
+```json
 {
   "usuario_id": 1,
   "cargo": "gerente",
   "numero_registro": 12345
 }
-
+```
 
 ### 4. ✏️ Atualizar Usuário
 
 PUT /usuario/atualizar
 
 Corpo:
+```json
 {
   "nome": "string",
   "email": "user@example.com",
   "senha": "string"
 }
-
+```
 
 ## 🚚 Frete — Solicitação, Pagamento e Histórico
 
@@ -217,21 +223,24 @@ POST /frete/solicitacao
 Requer token.
 
 Corpo:
+```json
 {
   "peso": 3.2,
   "opcao": 1,
   "cep_origem": "01001000",
   "cep_destino": "20040030"
 }
+```
 
 Retorno:
+```json
 {
   "frete_id": 1,
   "valor": 45.90,
   "tipo": "Expresso",
   "status": "calculado"
 }
-
+```
 
 ⚠️ Observação: A BrasilAPI apresenta instabilidades na devolução de coordenadas geográficas.
 Quando isso ocorre, o cálculo da distância falha e o frete não pode ser calculado.
@@ -241,17 +250,21 @@ Quando isso ocorre, o cálculo da distância falha e o frete não pode ser calcu
 POST /frete/pagamento
 
 Corpo:
+```json
 {
   "frete_id": 1,
   "meio_pagamento": "pix"
 }
+```
 
 Retorno:
+```json
 {
   "frete_id": 1,
   "status": "enviado",
   "meio_pagamento": "pix"
 }
+```
 
 ### 7. 📜 Histórico de Fretes
 
@@ -260,12 +273,13 @@ GET /frete/historico
 Acessível apenas para gerentes.
 
 Retorno:
+```json
 {
   "fretes": [
     "..."
   ]
 }
-
+```
 
 ### 8. 🔍 Consulta de Frete (Entregador)
 
@@ -274,12 +288,14 @@ GET /frete/consulta?frete_id=1
 Acesso restrito ao cargo entregador.
 
 Retorno:
+```json
 {
   "cep_origem": "string",
   "cep_destino": "string",
   "nome_remetente": "string",
   "telefone_remetente": "string"
 }
+```
 
 ## 📊 Relatórios
 
@@ -322,4 +338,4 @@ Retorno:
   "saida": "2025-11-21T01:18:33.764Z",
   "mensagem": "Registro efetuado"
 }
-˜˜˜
+```
