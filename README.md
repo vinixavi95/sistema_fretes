@@ -38,7 +38,7 @@ A API foi construída com FastAPI, executada via Uvicorn, utiliza PostgreSQL com
 - Registro de ponto (entrada/saída)
 
 
-### 🗄️ Estrutura da API (Architecture)
+### 🗄️ Estrutura da API
 
 O projeto segue a separação clara de responsabilidades:
 
