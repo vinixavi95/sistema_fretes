@@ -1,4 +1,4 @@
-**# 📦 Sistema de Fretes — Backend (FastAPI)**
+# 📦 Sistema de Fretes — Backend (FastAPI)
 
 Este projeto implementa um servidor backend completo para o sistema de fretes, permitindo que usuários se autentiquem, solicitem fretes, realizem pagamentos, consultem históricos e acessem relatórios conforme seu cargo (gerente, entregador ou usuário comum).
 
