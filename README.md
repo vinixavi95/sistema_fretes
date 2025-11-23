@@ -352,3 +352,24 @@ Retorno:
   "mensagem": "Registro efetuado"
 }
 ```
+
+## 🛠️ Correções e Melhorias Futuras
+### 1. Gestão segura de variáveis de ambiente
+
+- Criar um .env.example padronizado
+
+- Remover .env real do repositório
+
+- Implementar carregamento automático via Docker Compose
+
+### 2. Adicionar testes automatizados
+
+- Testes unitários (pytest)
+
+- Testes de integração para rotas
+
+### 3. Melhorias de arquitetura
+
+- Padronizar DTOs (Pydantic models)
+
+- Padronizar nomes de funções e variáveis
