@@ -43,7 +43,7 @@ Registro de ponto (entrada/saída)
 O projeto segue a separação clara de responsabilidades:
 
 
-route → controller → service → repository
+**route → controller → service → repository**
 
 
 
