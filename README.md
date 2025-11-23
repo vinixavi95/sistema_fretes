@@ -74,7 +74,7 @@ flowchart LR
 
 - python-jose (JWT)
 
-- - API BrasilAPI
+- API BrasilAPI
 
 API OSRM
 
