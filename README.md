@@ -1,6 +1,6 @@
 # 📦 Sistema de Fretes — Backend (FastAPI)
 
-Este projeto implementa um servidor backend completo para o sistema de fretes, permitindo que usuários se autentiquem, solicitem fretes, realizem pagamentos, consultem históricos e acessem relatórios conforme seu cargo (gerente, entregador ou usuário comum).
+Este projeto implementa um servidor backend para um sistema de fretes, permitindo que usuários se autentiquem, solicitem fretes, realizem pagamentos, consultem históricos e acessem relatórios conforme seu cargo (gerente, entregador ou usuário comum).
 
 A API foi construída com FastAPI, executada via Uvicorn, utiliza PostgreSQL como banco de dados e integra com duas APIs externas:
 
@@ -42,9 +42,9 @@ Registro de ponto (entrada/saída)
 
 O projeto segue a separação clara de responsabilidades:
 
-
+```mermaid
 **route → controller → service → repository**
-
+```
 
 
 route: recebe requisições HTTP
@@ -138,7 +138,7 @@ http://127.0.0.1:8000/docs
 
 ## 🗄️ Banco de Dados
 
-O sistema utiliza PostgreSQL:
+**O sistema utiliza PostgreSQL.**
 
 Com Docker: já vem configurado e inicializado junto com a aplicação.
 
