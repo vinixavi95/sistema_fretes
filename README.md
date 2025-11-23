@@ -78,36 +78,45 @@ API OSRM
 ## ▶️ Como executar o projeto
 
 ### 1. Clone o repositório
-
+```bash
 git clone https://github.com/vinixavi95/sistema_fretes.git
 
 cd sistema_fretes
-
+```
 
 ### 2. Instalação das dependências (opcional sem Docker)
 
 Se você quiser rodar o projeto localmente sem Docker, use um ambiente virtual e instale as dependências via requirements.txt:
 
 Criar e ativar um ambiente virtual
+```bash
 python -m venv venv
+```
 
 No Linux/macOS
+```bash
 source venv/bin/activate
+```
 
 No Windows
+```bash
 venv\Scripts\activate
+```
 
 Instalar dependências
+```bash
 pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 ### 3. Rodar o projeto
 
 #### Com Docker (recomendado)
 
 A imagem Docker já inclui o PostgreSQL e o esquema do banco de dados. Para subir tudo, execute:
-
+```bash
 docker compose up --build
+```
 
 Isso criará e iniciará os containers do backend e do banco de dados.
 
