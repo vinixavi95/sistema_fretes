@@ -124,9 +124,9 @@ Isso criará e iniciará os containers do backend e do banco de dados.
 #### Sem Docker
 
 Se estiver usando o ambiente virtual local, inicie o servidor FastAPI:
-
+```bash
 uvicorn main:app --reload
-
+```
 
 O servidor ficará disponível em http://127.0.0.1:8000.
 
