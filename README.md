@@ -127,7 +127,7 @@ O FastAPI fornece uma interface Swagger interativa:
 
 http://127.0.0.1:8000/docs
 
-##🗄️ Banco de Dados
+## 🗄️ Banco de Dados
 
 O sistema utiliza PostgreSQL:
 
