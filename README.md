@@ -300,7 +300,7 @@ Retorno:
     "mensagem": "OK"
   }
 ]
-˜˜˜
+```
 
 ### 10. ⏱️ Registro de Ponto
 
