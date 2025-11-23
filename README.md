@@ -76,7 +76,7 @@ flowchart LR
 
 - API BrasilAPI
 
-API OSRM
+- API OSRM
 
 
 ## ▶️ Como executar o projeto
