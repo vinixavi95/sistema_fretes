@@ -42,8 +42,12 @@ Registro de ponto (entrada/saída)
 
 O projeto segue a separação clara de responsabilidades:
 
+
 ```mermaid
-**route → controller → service → repository**
+flowchart LR
+    A[Route] --> B[Controller]
+    B --> C[Service]
+    C --> D[Repository]
 ```
 
 
