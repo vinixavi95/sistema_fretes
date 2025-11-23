@@ -290,6 +290,7 @@ GET /relatorio/fretes-dia?data_consulta=YYYY-MM-DD (opcional)
 Se não passar data, retorna os fretes do dia atual.
 
 Retorno:
+```json
 [
   {
     "frete_id": 1,
@@ -299,7 +300,7 @@ Retorno:
     "mensagem": "OK"
   }
 ]
-
+˜˜˜
 
 ### 10. ⏱️ Registro de Ponto
 
@@ -313,6 +314,7 @@ Corpo:
 ```
 
 Retorno:
+```json
 {
   "usuario_id": 1,
   "data": "2025-11-21",
@@ -320,3 +322,4 @@ Retorno:
   "saida": "2025-11-21T01:18:33.764Z",
   "mensagem": "Registro efetuado"
 }
+˜˜˜
